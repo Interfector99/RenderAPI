@@ -1,10 +1,17 @@
 #include <stdio.h>
+#include <stdint.h>
 #include <stdbool.h>
 #include <SDL.h>
 
 bool is_running = false;
 SDL_Window* window = NULL;
 SDL_Renderer* renderer = NULL;
+
+uint32_t* color_buffer = NULL;
+SDL_Texture* color_buffer_texture = NULL;
+
+int window_width = 800;
+int window_height = 600;
 
 bool initialize_window(void)
 {
@@ -18,12 +25,12 @@ bool initialize_window(void)
 	// Create SDL window
 	window = SDL_CreateWindow
 	(
-		NULL,					// window name and border	
+		NULL,					// window title
 		SDL_WINDOWPOS_CENTERED,	// window position on the monitor in x axis
 		SDL_WINDOWPOS_CENTERED,	// window position on the monitor in y axis
-		800,					// window size in pixel in x axis
-		600,					// window size in pixel in y axis
-		SDL_WINDOW_BORDERLESS	// flags: fullscreen, border, shadow
+		window_width,			// window size in pixel in x axis
+		window_height,			// window size in pixel in y axis
+		SDL_WINDOW_BORDERLESS	// extra flags (fullscreen, border, shadow)
 	);
 	if (!window)
 	{
@@ -34,9 +41,9 @@ bool initialize_window(void)
 	// Create SDL renderer
 	renderer = SDL_CreateRenderer
 	(
-		window,	// which window does this renderer belong to
-		-1,		// what is the default display device, -1 means get the first default
-		0		// flags: 0 means nothing
+		window,	// the window context
+		-1,		// index of the rendering device, (-1 means get the first default)
+		0		// extra flags (0 means nothing)
 
 	);
 	if (!renderer)
@@ -50,7 +57,19 @@ bool initialize_window(void)
 
 void setup(void)
 {
+	// Allocate the required memory to hold the color buffer
+	color_buffer = (uint32_t*) malloc(sizeof(uint32_t) * window_width * window_height); // sizeof() is a language operator, not a function
+	// TODO: check for malloc error
 
+	// Creating SDl texture that is used to display the color buffer
+	color_buffer_texture = SDL_CreateTexture
+	(
+		renderer,						// the rendering context
+		SDL_PIXELFORMAT_ARGB8888,		// pixel format
+		SDL_TEXTUREACCESS_STREAMING,	// texture access
+		window_width,					// texture width
+		window_height					// texture_height
+	);
 }
 
 void process_input(void)
@@ -78,14 +97,54 @@ void update(void)
 
 }
 
+void clear_color_buffer(uint32_t color)
+{
+	for (int y = 0; y < window_height; y++)
+	{
+		for (int x = 0; x < window_width; x++)
+		{
+			color_buffer[(window_width * y) + x] = color;
+		}
+	}
+}
+
+void render_color_buffer(void)
+{
+	// Update the content of the texture
+	SDL_UpdateTexture
+	(
+		color_buffer_texture,				// the texture to update
+		NULL,								// an SDL_Rect structure representing the area to update (NULL means entire texture)
+		color_buffer,						// raw pixel data to copy
+		(window_width * sizeof(uint32_t))	// the number of bytes in a row of pixel data, including padding between lines
+	);
+
+	SDL_RenderCopy
+	(
+		renderer,				// the rendering context
+		color_buffer_texture,	// the source texture
+		NULL,					// the source SDL_Rect structure of NULL for entire texture
+		NULL					// the destination SDL_Rect structure or NULL for entire rendering target (stretched if needed)
+	);
+}
+
 void render(void)
 {
 	SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
 	SDL_RenderClear(renderer);
 
-	// ...
+	render_color_buffer();
+	clear_color_buffer(0xFFFFFF00);
 
 	SDL_RenderPresent(renderer);
+}
+
+void destroy_window(void)
+{
+	free(color_buffer);
+	SDL_DestroyRenderer(renderer);
+	SDL_DestroyWindow(window);
+	SDL_Quit();
 }
 
 int main(int argc, char* args[])
@@ -100,5 +159,8 @@ int main(int argc, char* args[])
 		update();
 		render();
 	}
+
+	destroy_window();
+
 	return 0;
 }
