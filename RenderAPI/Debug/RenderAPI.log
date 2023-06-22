@@ -1,0 +1,17 @@
+﻿  main.c
+C:\Projects\RenderAPI\RenderAPI\main.c(81,25): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Projects\RenderAPI\RenderAPI\main.c(82,25): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Projects\RenderAPI\RenderAPI\main.c(83,25): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Projects\RenderAPI\RenderAPI\main.c(134,36): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Projects\RenderAPI\RenderAPI\main.c(134,58): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Projects\RenderAPI\RenderAPI\main.c(135,36): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Projects\RenderAPI\RenderAPI\main.c(135,58): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Projects\RenderAPI\RenderAPI\main.c(136,36): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Projects\RenderAPI\RenderAPI\main.c(136,58): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Projects\RenderAPI\RenderAPI\main.c(139,35): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Projects\RenderAPI\RenderAPI\main.c(139,57): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Projects\RenderAPI\RenderAPI\main.c(140,26): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Projects\RenderAPI\RenderAPI\main.c(140,48): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Projects\RenderAPI\RenderAPI\main.c(141,26): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Projects\RenderAPI\RenderAPI\main.c(141,48): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+  RenderAPI.vcxproj -> C:\Projects\RenderAPI\Debug\RenderAPI.exe

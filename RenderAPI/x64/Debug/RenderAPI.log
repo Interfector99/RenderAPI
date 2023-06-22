@@ -1,0 +1,4 @@
+﻿  main.c
+C:\Projects\RenderAPI\RenderAPI\main.c(103,22): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Projects\RenderAPI\RenderAPI\main.c(104,22): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+  RenderAPI.vcxproj -> C:\Projects\RenderAPI\x64\Debug\RenderAPI.exe
