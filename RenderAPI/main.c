@@ -11,7 +11,7 @@ triangle_t* triangles_to_render = NULL;
 bool is_running = false;
 int previous_frame_time = 0;
 
-vec3_t camera_position = { 0, 0, -5 };
+vec3_t camera_position = { 0, 0, 0 };
 float fov_factor = 640;
 
 void setup(void)
@@ -31,7 +31,7 @@ void setup(void)
 	);
 
 	//load_cube_mesh_data();
-	load_obj_file_data("../assets/f22.obj");
+	load_obj_file_data("../assets/cube.obj");
 }
 
 void process_input(void)
@@ -95,6 +95,8 @@ void update(void)
 
 		triangle_t projected_triangle;
 
+		vec3_t transformed_vertices[3];
+
 		// Loop all three vertices of this current face and apply transformations
 		for (int j = 0; j < 3; j++)
 		{
@@ -104,9 +106,36 @@ void update(void)
 			transformed_vertex = vec3_rotate_z(transformed_vertex, mesh.rotation.z);
 
 			// Translate the vertex away from the camera
-			transformed_vertex.z -= camera_position.z;
+			transformed_vertex.z += 5;
 
-			vec2_t projected_point = project(transformed_vertex);
+			// Save transformed vertex
+			transformed_vertices[j] = transformed_vertex;
+		}
+		
+		// Backface Culling (clockwise, left-handed system)
+		vec3_t vector_a = transformed_vertices[0]; /*   A   */
+		vec3_t vector_b = transformed_vertices[1]; /*  / \  */
+		vec3_t vector_c = transformed_vertices[2]; /* C---B */
+
+		vec3_t vector_ab = vec3_sub(vector_b, vector_a);
+		vec3_t vector_ac = vec3_sub(vector_c, vector_a);
+
+		vec3_t normal = vec3_cross(vector_ab, vector_ac);
+
+		vec3_t camera_ray = vec3_sub(camera_position, vector_a);
+
+		float face_angle = vec3_dot(camera_ray, normal);
+
+		// Bypass the faces that are looking away from the camera
+		if (face_angle < 0)
+		{
+			continue;
+		}
+
+		// Projection
+		for (int j = 0; j < 3; j++)
+		{
+			vec2_t projected_point = project(transformed_vertices[j]);
 
 			// Scale and translate the projected pointto the middle of the screen
 			projected_point.x += (window_width / 2);

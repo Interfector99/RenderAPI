@@ -2,28 +2,16 @@
 C:\Projects\RenderAPI\RenderAPI\main.c(81,25): warning C4305: '+=': truncation from 'double' to 'float'
 C:\Projects\RenderAPI\RenderAPI\main.c(82,25): warning C4305: '+=': truncation from 'double' to 'float'
 C:\Projects\RenderAPI\RenderAPI\main.c(83,25): warning C4305: '+=': truncation from 'double' to 'float'
-C:\Projects\RenderAPI\RenderAPI\main.c(134,36): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\Projects\RenderAPI\RenderAPI\main.c(134,58): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\Projects\RenderAPI\RenderAPI\main.c(135,36): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\Projects\RenderAPI\RenderAPI\main.c(135,58): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\Projects\RenderAPI\RenderAPI\main.c(136,36): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\Projects\RenderAPI\RenderAPI\main.c(136,58): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\Projects\RenderAPI\RenderAPI\main.c(139,35): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\Projects\RenderAPI\RenderAPI\main.c(139,57): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\Projects\RenderAPI\RenderAPI\main.c(140,26): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\Projects\RenderAPI\RenderAPI\main.c(140,48): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\Projects\RenderAPI\RenderAPI\main.c(141,26): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\Projects\RenderAPI\RenderAPI\main.c(141,48): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-  mesh.c
-  triangle.c
-  vector.c
-C:\Projects\RenderAPI\RenderAPI\vector.c(8,12): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Projects\RenderAPI\RenderAPI\vector.c(51,12): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Projects\RenderAPI\RenderAPI\vector.c(106,31): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Projects\RenderAPI\RenderAPI\vector.c(107,31): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Projects\RenderAPI\RenderAPI\vector.c(114,31): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Projects\RenderAPI\RenderAPI\vector.c(116,31): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Projects\RenderAPI\RenderAPI\vector.c(123,31): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Projects\RenderAPI\RenderAPI\vector.c(124,31): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-  Generating Code...
+C:\Projects\RenderAPI\RenderAPI\main.c(163,36): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Projects\RenderAPI\RenderAPI\main.c(163,58): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Projects\RenderAPI\RenderAPI\main.c(164,36): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Projects\RenderAPI\RenderAPI\main.c(164,58): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Projects\RenderAPI\RenderAPI\main.c(165,36): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Projects\RenderAPI\RenderAPI\main.c(165,58): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Projects\RenderAPI\RenderAPI\main.c(168,35): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Projects\RenderAPI\RenderAPI\main.c(168,57): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Projects\RenderAPI\RenderAPI\main.c(169,26): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Projects\RenderAPI\RenderAPI\main.c(169,48): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Projects\RenderAPI\RenderAPI\main.c(170,26): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Projects\RenderAPI\RenderAPI\main.c(170,48): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
   RenderAPI.vcxproj -> C:\Projects\RenderAPI\Debug\RenderAPI.exe
