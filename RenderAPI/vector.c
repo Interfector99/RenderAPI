@@ -40,6 +40,11 @@ vec2_t vec2_div(vec2_t v, float factor) {
     return result;
 }
 
+vec2_t vec2_normalize(vec2_t v)
+{
+    return vec2_div(v, vec2_length(v));
+}
+
 float vec2_dot(vec2_t a, vec2_t b) {
     return (a.x * b.x) + (a.y * b.y);
 }
@@ -85,6 +90,11 @@ vec3_t vec3_div(vec3_t v, float factor) {
         .z = v.z / factor
     };
     return result;
+}
+
+vec3_t vec3_normalize(vec3_t v)
+{
+    return vec3_div(v, vec3_length(v));
 }
 
 vec3_t vec3_cross(vec3_t a, vec3_t b) {

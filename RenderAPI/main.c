@@ -31,7 +31,7 @@ void setup(void)
 	);
 
 	//load_cube_mesh_data();
-	load_obj_file_data("../assets/cube.obj");
+	load_obj_file_data("../assets/f22.obj");
 }
 
 void process_input(void)
@@ -120,7 +120,12 @@ void update(void)
 		vec3_t vector_ab = vec3_sub(vector_b, vector_a);
 		vec3_t vector_ac = vec3_sub(vector_c, vector_a);
 
+		vector_ab = vec3_normalize(vector_ab);
+		vector_ac = vec3_normalize(vector_ac);
+
 		vec3_t normal = vec3_cross(vector_ab, vector_ac);
+
+		normal = vec3_normalize(normal);
 
 		vec3_t camera_ray = vec3_sub(camera_position, vector_a);
 
