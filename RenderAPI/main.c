@@ -6,6 +6,7 @@
 #include "mesh.h"
 #include "array.h"
 #include "matrix.h"
+#include "light.h"
 
 triangle_t* triangles_to_render = NULL;
 
@@ -13,7 +14,7 @@ bool is_running = false;
 int previous_frame_time = 0;
 
 vec3_t camera_position = { 0, 0, 0 };
-float fov_factor = 640;
+mat4_t proj_matrix;
 
 void setup(void)
 {
@@ -32,6 +33,13 @@ void setup(void)
 		window_width,					// texture width
 		window_height					// texture_height
 	);
+
+	// Init perspective projection matrix
+	float fov = M_PI / 3; // 60 degrees
+	float aspect_ratio = (float)window_height / (float)window_width;
+	float znear = 0.1f;
+	float zfar = 100.0f;
+	proj_matrix = mat4_make_perspective(fov, aspect_ratio, znear, zfar);
 
 	load_cube_mesh_data();
 	//load_obj_file_data("../assets/cube.obj");
@@ -81,16 +89,6 @@ void process_input(void)
 	}
 }
 
-vec2_t project(vec3_t point)
-{
-	vec2_t projected_point = 
-	{ 
-		(point.x * fov_factor) / point.z, 
-		(point.y * fov_factor) / point.z 
-	};
-	return projected_point;
-}
-
 void update(void)
 {
 	// Wait some time until the reach the target frame time in milliseconds
@@ -107,11 +105,11 @@ void update(void)
 
 	// Transformations
 	mesh.rotation.x += 0.01;
-	mesh.rotation.y += 0.01;
-	mesh.rotation.z += 0.01;
-	mesh.scale.x += 0.002;
-	mesh.scale.y += 0.001;
-	mesh.translation.x += 0.01;
+	//mesh.rotation.y += 0.01;
+	//mesh.rotation.z += 0.01;
+	//mesh.scale.x += 0.002;
+	//mesh.scale.y += 0.001;
+	//mesh.translation.x += 0.01;
 	mesh.translation.z = 5.0;
 
 	// Create matrices
@@ -182,16 +180,20 @@ void update(void)
 			}
 		}
 
-		vec2_t projected_points[3];
+		vec4_t projected_points[3];
 
 		// Projection
 		for (int j = 0; j < 3; j++)
 		{
-			projected_points[j] = project(vec3_from_vec4(transformed_vertices[j]));
+			projected_points[j] = mat4_mul_vec4_project(proj_matrix, transformed_vertices[j]);
 
-			// Scale and translate the projected pointto the middle of the screen
-			projected_points[j].x += (window_width / 2);
-			projected_points[j].y += (window_height / 2);
+			// Scale into the view
+			projected_points[j].x *= (window_width / 2.0f);
+			projected_points[j].y *= (window_height / 2.0f);
+
+			// Translate the projected point to the middle of the screen
+			projected_points[j].x += (window_width / 2.0f);
+			projected_points[j].y += (window_height / 2.0f);
 		}
 
 		// Calculate average depth for each face
@@ -242,6 +244,7 @@ void render(void)
 		// Draw filled triangles
 		if (render_method == RENDER_FILL_TRIANGLE || render_method == RENDER_FILL_TRIANGLE_WIRE)
 		{
+
 			draw_filled_triangle(triangle.points[0].x, triangle.points[0].y,
 								 triangle.points[1].x, triangle.points[1].y,
 								 triangle.points[2].x, triangle.points[2].y,
