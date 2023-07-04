@@ -1,7 +1,8 @@
 #include <math.h>
 #include "matrix.h"
 
-mat4_t mat4_identity(void) {
+mat4_t mat4_identity(void) 
+{
     // | 1 0 0 0 |
     // | 0 1 0 0 |
     // | 0 0 1 0 |
@@ -15,7 +16,8 @@ mat4_t mat4_identity(void) {
     return m;
 }
 
-mat4_t mat4_make_scale(float sx, float sy, float sz) {
+mat4_t mat4_make_scale(float sx, float sy, float sz) 
+{
     // | sx  0  0  0 |
     // |  0 sy  0  0 |
     // |  0  0 sz  0 |
@@ -27,7 +29,8 @@ mat4_t mat4_make_scale(float sx, float sy, float sz) {
     return m;
 }
 
-mat4_t mat4_make_translation(float tx, float ty, float tz) {
+mat4_t mat4_make_translation(float tx, float ty, float tz) 
+{
     // | 1  0  0  tx |
     // | 0  1  0  ty |
     // | 0  0  1  tz |
@@ -39,7 +42,8 @@ mat4_t mat4_make_translation(float tx, float ty, float tz) {
     return m;
 }
 
-mat4_t mat4_make_rotation_x(float angle) {
+mat4_t mat4_make_rotation_x(float angle) 
+{
     float c = cos(angle);
     float s = sin(angle);
     // | 1  0  0  0 |
@@ -54,7 +58,8 @@ mat4_t mat4_make_rotation_x(float angle) {
     return m;
 }
 
-mat4_t mat4_make_rotation_y(float angle) {
+mat4_t mat4_make_rotation_y(float angle) 
+{
     float c = cos(angle);
     float s = sin(angle);
     // |  c  0  s  0 |
@@ -69,7 +74,8 @@ mat4_t mat4_make_rotation_y(float angle) {
     return m;
 }
 
-mat4_t mat4_make_rotation_z(float angle) {
+mat4_t mat4_make_rotation_z(float angle) 
+{
     float c = cos(angle);
     float s = sin(angle);
     // | c -s  0  0 |
@@ -84,7 +90,8 @@ mat4_t mat4_make_rotation_z(float angle) {
     return m;
 }
 
-vec4_t mat4_mult_vec4(mat4_t m, vec4_t v) {
+vec4_t mat4_mult_vec4(mat4_t m, vec4_t v) 
+{
     vec4_t result;
     result.x = m.m[0][0] * v.x + m.m[0][1] * v.y + m.m[0][2] * v.z + m.m[0][3] * v.w;
     result.y = m.m[1][0] * v.x + m.m[1][1] * v.y + m.m[1][2] * v.z + m.m[1][3] * v.w;
@@ -119,7 +126,8 @@ mat4_t mat4_make_perspective(float fov, float aspect, float znear, float zfar)
     return m;
 }
 
-vec4_t mat4_mul_vec4_project(mat4_t mat_proj, vec4_t v) {
+vec4_t mat4_mul_vec4_project(mat4_t mat_proj, vec4_t v) 
+{
     // multiply the projection matrix by our original vector
     vec4_t result = mat4_mult_vec4(mat_proj, v);
 
