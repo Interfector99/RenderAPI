@@ -20,6 +20,7 @@ void setup(void)
 {
 	render_method = RENDER_WIRE;
 	cull_method = CULL_BACKFACE;
+	projection_method = PROJECTION_PERSPECTIVE;
 	// Allocate the required memory to hold the color buffer
 	color_buffer = (color_t*) malloc(sizeof(color_t) * window_width * window_height); // sizeof() is a language operator, not a function
 	// TODO: check for malloc error
@@ -40,6 +41,7 @@ void setup(void)
 	float znear = 0.1f;
 	float zfar = 100.0f;
 	proj_matrix = mat4_make_perspective(fov, aspect_ratio, znear, zfar);
+	//proj_matrix = mat4_make_orthographic(0.1f, 100.0f, 5.0f, -5.0f, -5.0f, 5.0f);
 
 	//load_cube_mesh_data();
 	load_obj_file_data("../assets/f22.obj");
@@ -84,6 +86,20 @@ void process_input(void)
 			if (event.key.keysym.sym == SDLK_d)
 			{
 				cull_method = CULL_NONE;
+			}
+			if (event.key.keysym.sym == SDLK_p)
+			{
+				projection_method = PROJECTION_PERSPECTIVE;
+				float fov = M_PI / 3; // 60 degrees
+				float aspect_ratio = (float)window_height / (float)window_width;
+				float znear = 0.1f;
+				float zfar = 100.0f;
+				proj_matrix = mat4_make_perspective(fov, aspect_ratio, znear, zfar);
+			}
+			if (event.key.keysym.sym == SDLK_o)
+			{
+				projection_method = PROJECTION_ORTHOGONAL;
+				proj_matrix = mat4_make_orthographic(0.1f, 100.0f, 5.0f, -5.0f, -5.0f, 5.0f);
 			}
 			break;
 	}

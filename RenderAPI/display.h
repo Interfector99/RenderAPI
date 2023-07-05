@@ -26,6 +26,12 @@ enum cull_method
 	CULL_BACKFACE
 } cull_method;
 
+enum projection_method
+{
+	PROJECTION_PERSPECTIVE,
+	PROJECTION_ORTHOGONAL
+} projection_method;
+
 extern SDL_Window* window;
 extern SDL_Renderer* renderer;
 extern uint32_t* color_buffer;
