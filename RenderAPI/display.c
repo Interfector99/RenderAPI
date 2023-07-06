@@ -105,11 +105,33 @@ void draw_line(int x0, int y0, int x1, int y1, color_t color)
 	}
 }
 
-void draw_triangle(int x0, int y0, int x1, int y1, int x2, int y2, color_t color)
+void draw_line_bresenham(int x0, int y0, int x1, int y1, color_t color)
 {
-	draw_line(x0, y0, x1, y1, color);
-	draw_line(x1, y1, x2, y2, color);
-	draw_line(x2, y2, x0, y0, color);
+	int dx = abs(x0 - x1), dy = abs(y0 - y1);
+	int p = 2 * dy - dx;
+	int twoDy = 2 * dy, twoDyDx = 2 * (dy - dx);
+	int x, y, xEnd;
+	/*Determine which points to start and End */
+	if (x0 > x1) {
+		x = x1;
+		y = y1;
+		xEnd = x0;
+	}
+	else {
+		x = x0; y = y0; xEnd = x1;
+	}
+	draw_pixel(x, y, color);
+	while (x < xEnd) {
+		x++;
+		if (p < 0) {
+			p = p + twoDy;
+		}
+		else {
+			y++;
+			p = p + twoDyDx;
+		}
+		draw_pixel(x, y, color);
+	}
 }
 
 void draw_rectangle(int pos_x, int pos_y, int width, int height, color_t color)

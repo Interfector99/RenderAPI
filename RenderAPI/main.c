@@ -7,6 +7,8 @@
 #include "array.h"
 #include "matrix.h"
 #include "light.h"
+#include "triangle.h"
+#include "texture.h"
 
 triangle_t* triangles_to_render = NULL;
 
@@ -43,8 +45,14 @@ void setup(void)
 	proj_matrix = mat4_make_perspective(fov, aspect_ratio, znear, zfar);
 	//proj_matrix = mat4_make_orthographic(0.1f, 100.0f, 5.0f, -5.0f, -5.0f, 5.0f);
 
-	//load_cube_mesh_data();
-	load_obj_file_data("../assets/f22.obj");
+	// manually load texture data from static array
+	mesh_texture = (uint32_t*)RED_BRICK_TEXTURE;
+	texture_width = 64;
+	texture_height = 64;
+
+
+	load_cube_mesh_data();
+	//load_obj_file_data("../assets/cube.obj");
 }
 
 void process_input(void)
@@ -78,6 +86,14 @@ void process_input(void)
 			if (event.key.keysym.sym == SDLK_4)
 			{
 				render_method = RENDER_FILL_TRIANGLE_WIRE;
+			}
+			if (event.key.keysym.sym == SDLK_5)
+			{
+				render_method = RENDER_TEXTURED;
+			}
+			if (event.key.keysym.sym == SDLK_6)
+			{
+				render_method = RENDER_TEXTURED_WIRE;
 			}
 			if (event.key.keysym.sym == SDLK_c)
 			{
@@ -229,6 +245,12 @@ void update(void)
 				{ projected_points[1].x, projected_points[1].y },
 				{ projected_points[2].x, projected_points[2].y },
 			},
+			.texcoords = 
+			{
+				{ mesh_face.a_uv.u, mesh_face.a_uv.v },
+				{ mesh_face.b_uv.u, mesh_face.b_uv.v },
+				{ mesh_face.c_uv.u, mesh_face.c_uv.v },
+			},
 			.color = triangle_color,
 			.avg_depth = avg_depth
 		};
@@ -273,8 +295,18 @@ void render(void)
 								 triangle.color);
 		}
 
+		// Draw textured triangles
+		if (render_method == RENDER_TEXTURED || render_method == RENDER_TEXTURED_WIRE)
+		{
+			draw_textured_triangle(
+				triangle.points[0].x, triangle.points[0].y, triangle.texcoords[0].u, triangle.texcoords[0].v,
+				triangle.points[1].x, triangle.points[1].y, triangle.texcoords[1].u, triangle.texcoords[1].v,
+				triangle.points[2].x, triangle.points[2].y, triangle.texcoords[2].u, triangle.texcoords[2].v,
+				triangle.color);
+		}
+
 		// Draw wires
-		if (render_method == RENDER_WIRE || render_method == RENDER_WIRE_VERTEX || render_method == RENDER_FILL_TRIANGLE_WIRE)
+		if (render_method == RENDER_WIRE || render_method == RENDER_WIRE_VERTEX || render_method == RENDER_FILL_TRIANGLE_WIRE || render_method == RENDER_TEXTURED_WIRE)
 		{
 			draw_triangle(triangle.points[0].x, triangle.points[0].y,
 						  triangle.points[1].x, triangle.points[1].y,
