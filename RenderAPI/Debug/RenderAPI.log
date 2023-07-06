@@ -1,35 +1,19 @@
-﻿  main.c
-C:\project\RenderAPI\RenderAPI\main.c(41,1): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\project\RenderAPI\RenderAPI\main.c(109,1): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\project\RenderAPI\RenderAPI\main.c(139,25): warning C4305: '+=': truncation from 'double' to 'float'
-C:\project\RenderAPI\RenderAPI\main.c(140,25): warning C4305: '+=': truncation from 'double' to 'float'
-C:\project\RenderAPI\RenderAPI\main.c(141,25): warning C4305: '+=': truncation from 'double' to 'float'
-C:\project\RenderAPI\RenderAPI\main.c(235,1): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\project\RenderAPI\RenderAPI\main.c(292,45): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\main.c(292,67): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\main.c(293,30): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\main.c(293,52): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\main.c(294,30): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\main.c(294,52): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\main.c(302,25): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\main.c(302,47): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\main.c(303,25): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\main.c(303,47): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\main.c(304,25): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\main.c(304,47): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\main.c(305,19): warning C4047: 'function': 'uint32_t *' differs in levels of indirection from 'color_t'
-C:\project\RenderAPI\RenderAPI\main.c(305,13): warning C4024: 'draw_textured_triangle': different types for formal and actual parameter 13
-C:\project\RenderAPI\RenderAPI\main.c(311,38): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\main.c(311,60): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\main.c(312,29): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\main.c(312,51): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\main.c(313,29): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\main.c(313,51): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\main.c(320,43): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\main.c(320,69): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\main.c(321,43): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\main.c(321,69): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\main.c(322,43): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\main.c(322,69): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-main.obj : error LNK2001: unresolved external symbol _RED_BRICK_TEXTURE
-C:\project\RenderAPI\Debug\RenderAPI.exe : fatal error LNK1120: 1 unresolved externals
+﻿  triangle.c
+C:\project\RenderAPI\RenderAPI\triangle.c(14,20): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\project\RenderAPI\RenderAPI\triangle.c(14,30): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\project\RenderAPI\RenderAPI\triangle.c(9,1): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\project\RenderAPI\RenderAPI\triangle.c(10,1): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\project\RenderAPI\RenderAPI\triangle.c(30,20): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\project\RenderAPI\RenderAPI\triangle.c(30,30): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\project\RenderAPI\RenderAPI\triangle.c(25,1): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\project\RenderAPI\RenderAPI\triangle.c(26,1): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\project\RenderAPI\RenderAPI\triangle.c(69,1): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\project\RenderAPI\RenderAPI\triangle.c(115,1): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\project\RenderAPI\RenderAPI\triangle.c(163,1): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\project\RenderAPI\RenderAPI\triangle.c(164,1): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\project\RenderAPI\RenderAPI\triangle.c(165,1): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\project\RenderAPI\RenderAPI\triangle.c(178,1): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\project\RenderAPI\RenderAPI\triangle.c(179,1): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\project\RenderAPI\RenderAPI\triangle.c(203,1): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\project\RenderAPI\RenderAPI\triangle.c(204,1): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  RenderAPI.vcxproj -> C:\project\RenderAPI\Debug\RenderAPI.exe

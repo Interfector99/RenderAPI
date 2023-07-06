@@ -2,7 +2,6 @@
 
 int texture_width = 64;
 int texture_height = 64;
-
 uint32_t* mesh_texture = NULL;
 
 const uint8_t REDBRICK_TEXTURE[] = 

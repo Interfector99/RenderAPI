@@ -46,7 +46,7 @@ void setup(void)
 	//proj_matrix = mat4_make_orthographic(0.1f, 100.0f, 5.0f, -5.0f, -5.0f, 5.0f);
 
 	// manually load texture data from static array
-	mesh_texture = (uint32_t*)RED_BRICK_TEXTURE;
+	mesh_texture = (uint32_t*)REDBRICK_TEXTURE;
 	texture_width = 64;
 	texture_height = 64;
 
@@ -302,7 +302,7 @@ void render(void)
 				triangle.points[0].x, triangle.points[0].y, triangle.texcoords[0].u, triangle.texcoords[0].v,
 				triangle.points[1].x, triangle.points[1].y, triangle.texcoords[1].u, triangle.texcoords[1].v,
 				triangle.points[2].x, triangle.points[2].y, triangle.texcoords[2].u, triangle.texcoords[2].v,
-				triangle.color);
+				mesh_texture);
 		}
 
 		// Draw wires
