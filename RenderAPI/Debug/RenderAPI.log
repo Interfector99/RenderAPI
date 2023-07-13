@@ -1,19 +1,2 @@
-﻿  triangle.c
-C:\project\RenderAPI\RenderAPI\triangle.c(14,20): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\triangle.c(14,30): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\triangle.c(9,1): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\project\RenderAPI\RenderAPI\triangle.c(10,1): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\project\RenderAPI\RenderAPI\triangle.c(30,20): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\triangle.c(30,30): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\triangle.c(25,1): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\project\RenderAPI\RenderAPI\triangle.c(26,1): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\project\RenderAPI\RenderAPI\triangle.c(69,1): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\triangle.c(115,1): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\project\RenderAPI\RenderAPI\triangle.c(163,1): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\project\RenderAPI\RenderAPI\triangle.c(164,1): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\project\RenderAPI\RenderAPI\triangle.c(165,1): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\project\RenderAPI\RenderAPI\triangle.c(178,1): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\triangle.c(179,1): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\triangle.c(203,1): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\project\RenderAPI\RenderAPI\triangle.c(204,1): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+﻿  texture.c
   RenderAPI.vcxproj -> C:\project\RenderAPI\Debug\RenderAPI.exe
